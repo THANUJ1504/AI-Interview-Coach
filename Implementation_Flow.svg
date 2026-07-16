@@ -1,0 +1,265 @@
+<svg viewBox="0 0 1320 2760" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Segoe UI, sans-serif">
+<defs>
+  <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4b2aad"/><stop offset="0.5" stop-color="#6d3bd1"/><stop offset="1" stop-color="#8b5cf6"/>
+  </linearGradient>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7c5cff"/></marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2a7d52"/></marker>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e53e3e"/></marker>
+</defs>
+<rect width="1320" height="2760" fill="#0b0b14"/>
+<rect x="30" y="22" width="1260" height="70" rx="16" fill="url(#hero)"/>
+<text x="52" y="56" fill="#fff" font-size="23" font-weight="800">AI Interview Coach — Full Implementation Flow (Step 1 to Finish)</text>
+<text x="52" y="80" fill="#e9e4ff" font-size="13">Each box = one working section. Purple = main path · green = AI/online · red = proctoring/fail · gold = decision.</text>
+
+<!-- What's new box -->
+<rect x="906" y="100" width="384" height="132" rx="10" fill="#13131f" stroke="#2a7d52"/>
+<text x="922" y="120" fill="#7ee0a8" font-size="12.5" font-weight="700">What's current in this version</text>
+<text x="922" y="139" fill="#cfcfe0" font-size="10.5">• Gaze: 2 head turns → ONE red warning → 4th = FAIL</text>
+<text x="922" y="155" fill="#cfcfe0" font-size="10.5">• PDF certificate + PDF detailed report (reportlab)</text>
+<text x="922" y="171" fill="#cfcfe0" font-size="10.5">• 5–50 questions · 38-language code editor (AI-graded)</text>
+<text x="922" y="187" fill="#cfcfe0" font-size="10.5">• Daily auto-updating "Hiring today" board</text>
+<text x="922" y="203" fill="#cfcfe0" font-size="10.5">• Recruiter dashboard = separate app (shared data)</text>
+<text x="922" y="219" fill="#cfcfe0" font-size="10.5">• Auto offline mode · multi-provider AI fallback</text>
+
+<!-- STEP 1 -->
+<rect x="455" y="116" width="410" height="64" rx="12" fill="#13131f" stroke="#7c5cff" stroke-width="1.5"/>
+<text x="475" y="142" fill="#fff" font-size="15" font-weight="700">1 · Launch app (streamlit run coach.py)</text>
+<text x="475" y="162" fill="#a9a9bd" font-size="11.5">Loads config, dark theme CSS, session_state defaults (the FSM "stage").</text>
+<path d="M660 180 L660 200" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- STEP 2 decision connectivity -->
+<polygon points="660,200 880,250 660,300 440,250" fill="#1a1730" stroke="#f59e0b" stroke-width="1.6"/>
+<text x="660" y="244" fill="#fff" font-size="13.5" font-weight="700" text-anchor="middle">2 · check_internet()</text>
+<text x="660" y="262" fill="#f5d08a" font-size="11" text-anchor="middle">socket test — online?</text>
+
+<!-- offline branch -->
+<path d="M440 250 L250 250 L250 300" stroke="#2a7d52" stroke-width="2" marker-end="url(#arg)"/>
+<text x="330" y="242" fill="#7ee0a8" font-size="11" text-anchor="middle">NO (offline)</text>
+<rect x="70" y="300" width="360" height="74" rx="12" fill="#13131f" stroke="#2a7d52" stroke-width="1.4"/>
+<text x="88" y="326" fill="#fff" font-size="13.5" font-weight="700">2a · Offline Demo Mode (auto)</text>
+<text x="88" y="346" fill="#a9a9bd" font-size="11">Built-in question bank + instant offline scoring.</text>
+<text x="88" y="362" fill="#a9a9bd" font-size="11">API-key inputs hidden. "Recheck connection" button.</text>
+
+<!-- online branch -->
+<path d="M880 250 L1070 250 L1070 300" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+<text x="980" y="242" fill="#c4b5fd" font-size="11" text-anchor="middle">YES (online)</text>
+<rect x="890" y="300" width="360" height="74" rx="12" fill="#13131f" stroke="#7c5cff" stroke-width="1.4"/>
+<text x="908" y="326" fill="#fff" font-size="13.5" font-weight="700">2b · Live AI Mode</text>
+<text x="908" y="346" fill="#a9a9bd" font-size="11">Sidebar: provider + model picker + API key.</text>
+<text x="908" y="362" fill="#a9a9bd" font-size="11">Shared host key (secrets/env) → every user has access.</text>
+
+<!-- merge to auth -->
+<path d="M250 374 L250 410 L660 410 L660 432" stroke="#7c5cff" stroke-width="1.6" fill="none"/>
+<path d="M1070 374 L1070 410 L660 410" stroke="#7c5cff" stroke-width="1.6" fill="none"/>
+<path d="M660 410 L660 432" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- STEP 3 auth -->
+<rect x="455" y="432" width="410" height="74" rx="12" fill="#13131f" stroke="#7c5cff" stroke-width="1.5"/>
+<text x="475" y="458" fill="#fff" font-size="15" font-weight="700">3 · Auth gate — Login / Sign-up</text>
+<text x="475" y="478" fill="#a9a9bd" font-size="11.5">Salted SHA-256 passwords (users.json). Sign-up creates a candidate.</text>
+<text x="475" y="494" fill="#a9a9bd" font-size="11.5">Nothing else renders until logged in (st.stop()).</text>
+<path d="M660 506 L660 528" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- STEP 4 role decision -->
+<polygon points="660,528 880,578 660,628 440,578" fill="#1a1730" stroke="#f59e0b" stroke-width="1.6"/>
+<text x="660" y="574" fill="#fff" font-size="13.5" font-weight="700" text-anchor="middle">4 · Account role?</text>
+<text x="660" y="592" fill="#f5d08a" font-size="11" text-anchor="middle">candidate / recruiter</text>
+
+<!-- recruiter lane right -->
+<path d="M880 578 L1080 578 L1080 620" stroke="#e53e3e" stroke-width="2" marker-end="url(#arr)"/>
+<text x="980" y="570" fill="#ff9b9b" font-size="11" text-anchor="middle">recruiter</text>
+<rect x="900" y="620" width="380" height="70" rx="12" fill="#13131f" stroke="#e53e3e" stroke-width="1.3"/>
+<text x="918" y="646" fill="#fff" font-size="13" font-weight="700">R1 · Redirected to separate app</text>
+<text x="918" y="666" fill="#a9a9bd" font-size="11">coach.py tells recruiters to run</text>
+<text x="918" y="681" fill="#a9a9bd" font-size="11">streamlit run recruiter_dashboard.py.</text>
+<path d="M1090 690 L1090 712" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="900" y="712" width="380" height="100" rx="12" fill="#13131f" stroke="#23233a"/>
+<text x="918" y="738" fill="#fff" font-size="13" font-weight="700">R2 · Recruiter Dashboard (own app)</text>
+<text x="918" y="758" fill="#a9a9bd" font-size="11">📊 Analytics: results, filters, CSV, leaderboards.</text>
+<text x="918" y="774" fill="#a9a9bd" font-size="11">🛠️ Create Interview: own questions + 13 lockdown</text>
+<text x="918" y="790" fill="#a9a9bd" font-size="11">toggles → shareable CODE (used by candidates in 5).</text>
+<text x="918" y="806" fill="#7ee0a8" font-size="11">Shares the same data folder. 📋 My Interviews.</text>
+<rect x="980" y="836" width="220" height="34" rx="9" fill="#1a1730" stroke="#2a7d52"/>
+<text x="1090" y="858" fill="#7ee0a8" font-size="12" font-weight="700" text-anchor="middle">END (recruiter)</text>
+<path d="M1090 812 L1090 836" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- candidate continues down -->
+<path d="M660 628 L660 654" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+<text x="600" y="648" fill="#c4b5fd" font-size="11" text-anchor="end">candidate</text>
+
+<!-- STEP 5 -->
+<rect x="430" y="654" width="460" height="92" rx="12" fill="#13131f" stroke="#23233a"/>
+<text x="450" y="680" fill="#fff" font-size="14" font-weight="700">5 · Choose interview (company_select stage)</text>
+<text x="450" y="700" fill="#a9a9bd" font-size="11.5">• Daily "Hiring today" board (auto-refreshes each day)</text>
+<text x="450" y="716" fill="#a9a9bd" font-size="11.5">• Target a company (80+/15 sectors) or General role</text>
+<text x="450" y="732" fill="#7ee0a8" font-size="11.5">• OR paste a recruiter CODE → loads that custom interview → jumps to step 9</text>
+<path d="M660 746 L660 768" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- STEP 6 -->
+<rect x="455" y="768" width="410" height="62" rx="12" fill="#13131f" stroke="#23233a"/>
+<text x="475" y="794" fill="#fff" font-size="14" font-weight="700">6 · Resume upload (optional)</text>
+<text x="475" y="814" fill="#a9a9bd" font-size="11.5">pypdf extracts text → AI returns skills, gaps, match %.</text>
+<path d="M660 830 L660 852" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- STEP 7 -->
+<rect x="455" y="852" width="410" height="62" rx="12" fill="#13131f" stroke="#23233a"/>
+<text x="475" y="878" fill="#fff" font-size="14" font-weight="700">7 · Interview setup</text>
+<text x="475" y="898" fill="#a9a9bd" font-size="11.5">Difficulty (7) · language (8) · #questions (5–50) · minutes/question · focus.</text>
+<path d="M660 914 L660 936" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- STEP 8 decision generate -->
+<polygon points="660,936 880,986 660,1036 440,986" fill="#1a1730" stroke="#f59e0b" stroke-width="1.6"/>
+<text x="660" y="982" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">8 · Generate questions</text>
+<text x="660" y="1000" fill="#f5d08a" font-size="11" text-anchor="middle">online or offline?</text>
+<rect x="120" y="954" width="300" height="64" rx="12" fill="#13131f" stroke="#2a7d52" stroke-width="1.3"/>
+<text x="138" y="980" fill="#fff" font-size="12.5" font-weight="700">8a · Offline bank</text>
+<text x="138" y="999" fill="#a9a9bd" font-size="11">Pre-loaded tagged questions.</text>
+<path d="M440 986 L420 986" stroke="#2a7d52" stroke-width="2" marker-end="url(#arg)"/>
+<rect x="900" y="954" width="300" height="64" rx="12" fill="#13131f" stroke="#2a7d52" stroke-width="1.3"/>
+<text x="918" y="980" fill="#fff" font-size="12.5" font-weight="700">8b · AI Generator</text>
+<text x="918" y="999" fill="#a9a9bd" font-size="11">Tailored to company + resume.</text>
+<path d="M880 986 L900 986" stroke="#2a7d52" stroke-width="2" marker-end="url(#arg)"/>
+<path d="M270 1018 L270 1058 L660 1058 L660 1080" stroke="#7c5cff" stroke-width="1.6" fill="none"/>
+<path d="M1050 1018 L1050 1058 L660 1058" stroke="#7c5cff" stroke-width="1.6" fill="none"/>
+<path d="M660 1058 L660 1080" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- STEP 9 system check -->
+<rect x="430" y="1080" width="460" height="96" rx="12" fill="#13131f" stroke="#e53e3e" stroke-width="1.5"/>
+<text x="450" y="1106" fill="#fff" font-size="15" font-weight="700">9 · System Check / syscheck (pre-flight)</text>
+<text x="450" y="1126" fill="#ffb4b4" font-size="11.5">Camera auto-on (any laptop cam) · face auto-detected · photo auto-captured ·</text>
+<text x="450" y="1142" fill="#ffb4b4" font-size="11.5">human-voice meter · gaze monitor starts · recruiter's lockdown rules activate.</text>
+<text x="450" y="1158" fill="#ffb4b4" font-size="11.5">Green START unlocks ONLY after camera + face are confirmed.</text>
+<path d="M660 1176 L660 1198" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- STEP 10 interview loop header -->
+<rect x="380" y="1198" width="560" height="40" rx="10" fill="url(#hero)"/>
+<text x="660" y="1224" fill="#fff" font-size="15" font-weight="800" text-anchor="middle">10 · INTERVIEW LOOP  (repeats per question)</text>
+<path d="M660 1238 L660 1258" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- per-question type decision -->
+<polygon points="660,1258 880,1308 660,1358 440,1308" fill="#1a1730" stroke="#f59e0b" stroke-width="1.6"/>
+<text x="660" y="1304" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">Question type?</text>
+<text x="660" y="1322" fill="#f5d08a" font-size="11" text-anchor="middle">CODING vs other</text>
+
+<!-- coding branch left -->
+<path d="M440 1308 L250 1308 L250 1348" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+<text x="345" y="1300" fill="#c4b5fd" font-size="11" text-anchor="middle">CODING</text>
+<rect x="60" y="1348" width="380" height="96" rx="12" fill="#13131f" stroke="#23233a"/>
+<text x="78" y="1374" fill="#fff" font-size="13" font-weight="700">10a · Multi-language code editor</text>
+<text x="78" y="1394" fill="#a9a9bd" font-size="11">Pick 1 of 38 languages, type code, submit.</text>
+<text x="78" y="1410" fill="#a9a9bd" font-size="11">AI dry-runs &amp; judges correctness → shows output.</text>
+<text x="78" y="1426" fill="#7ee0a8" font-size="11">CORRECT → points · INCORRECT → 0 points.</text>
+
+<!-- non-coding branch right -->
+<path d="M880 1308 L1070 1308 L1070 1348" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+<text x="975" y="1300" fill="#c4b5fd" font-size="11" text-anchor="middle">CONCEPT / DESIGN / BEHAVIORAL</text>
+<rect x="880" y="1348" width="380" height="96" rx="12" fill="#13131f" stroke="#23233a"/>
+<text x="898" y="1374" fill="#fff" font-size="13" font-weight="700">10b · Text or Voice answer</text>
+<text x="898" y="1394" fill="#a9a9bd" font-size="11">Type, or speak → Whisper transcribes to text.</text>
+<text x="898" y="1410" fill="#a9a9bd" font-size="11">AI Evaluator scores 1-10 with strength, fix,</text>
+<text x="898" y="1426" fill="#a9a9bd" font-size="11">ideal answer, complexity, tip.</text>
+
+<!-- merge to store -->
+<path d="M250 1444 L250 1478 L660 1478 L660 1500" stroke="#7c5cff" stroke-width="1.6" fill="none"/>
+<path d="M1070 1444 L1070 1478 L660 1478" stroke="#7c5cff" stroke-width="1.6" fill="none"/>
+<path d="M660 1478 L660 1500" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="455" y="1500" width="410" height="64" rx="12" fill="#13131f" stroke="#23233a"/>
+<text x="475" y="1526" fill="#fff" font-size="14" font-weight="700">10c · Store answer, score, feedback</text>
+<text x="475" y="1546" fill="#a9a9bd" font-size="11.5">Adaptive difficulty: avg ≥ 8.5 → next questions get harder.</text>
+<path d="M660 1564 L660 1586" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- more questions decision -->
+<polygon points="660,1586 880,1636 660,1686 440,1636" fill="#1a1730" stroke="#f59e0b" stroke-width="1.6"/>
+<text x="660" y="1632" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">More questions?</text>
+<text x="660" y="1650" fill="#f5d08a" font-size="11" text-anchor="middle">loop back / finish</text>
+<path d="M880 1636 L1180 1636 L1180 1308 L1230 1308" stroke="#7c5cff" stroke-width="1.5" fill="none"/>
+<path d="M1230 1308 L1230 1277 L905 1277" stroke="#7c5cff" stroke-width="1.5" fill="none"/>
+<path d="M905 1277 L883 1290" stroke="#7c5cff" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<text x="1120" y="1628" fill="#c4b5fd" font-size="11">YES → next question (loop)</text>
+<path d="M660 1686 L660 1710" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+<text x="600" y="1704" fill="#c4b5fd" font-size="11" text-anchor="end">NO</text>
+
+<!-- PROCTORING rail (left, spans 9-10) -->
+<rect x="30" y="1080" width="22" height="606" rx="8" fill="#2a1620" stroke="#e53e3e"/>
+<text x="41" y="1400" fill="#ff9b9b" font-size="12" font-weight="700" transform="rotate(-90 41 1400)" text-anchor="middle">PROCTORING LAYER — active through steps 9–10</text>
+
+<!-- proctoring detail box -->
+<rect x="60" y="1492" width="380" height="70" rx="12" fill="#13131f" stroke="#e53e3e" stroke-width="1.2"/>
+<text x="78" y="1516" fill="#fff" font-size="12.5" font-weight="700">Concurrent: lockdown + human-voice + gaze</text>
+<text x="78" y="1535" fill="#a9a9bd" font-size="10.5">Copy/paste, DevTools, tab-switch, full-screen exit logged.</text>
+<text x="78" y="1550" fill="#a9a9bd" font-size="10.5">Voice detector flags talking; fan/AC ignored. FaceMesh gaze.</text>
+
+<!-- gaze decision feeding terminate (UPDATED RULE) -->
+<polygon points="250,1720 470,1770 250,1820 30,1770" fill="#2a1620" stroke="#e53e3e" stroke-width="1.6"/>
+<text x="250" y="1764" fill="#fff" font-size="12.5" font-weight="700" text-anchor="middle">Head turn detected?</text>
+<text x="250" y="1782" fill="#ff9b9b" font-size="10.5" text-anchor="middle">counts sustained turns (debounced)</text>
+<path d="M250 1562 L250 1720" stroke="#e53e3e" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<rect x="60" y="1840" width="380" height="56" rx="12" fill="#2a1620" stroke="#e53e3e" stroke-width="1.4"/>
+<text x="78" y="1864" fill="#fff" font-size="12.5" font-weight="700">2nd head turn → ONE big RED warning</text>
+<text x="78" y="1882" fill="#ffb0b0" font-size="10.5">Single full-screen warning (no yellow). Auto-dismisses.</text>
+<path d="M250 1820 L250 1840" stroke="#e53e3e" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="60" y="1914" width="380" height="64" rx="12" fill="#2a1620" stroke="#e53e3e" stroke-width="1.6"/>
+<text x="78" y="1938" fill="#fff" font-size="12.5" font-weight="700">4th head turn → TERMINATE</text>
+<text x="78" y="1957" fill="#ff9b9b" font-size="10.5">Full-screen overlay; exam ends as FAILED;</text>
+<text x="78" y="1972" fill="#ff9b9b" font-size="10.5">routes to the Failed stage.</text>
+<path d="M250 1896 L250 1914" stroke="#e53e3e" stroke-width="2" marker-end="url(#arr)"/>
+
+<!-- STEP 11 terminated decision -->
+<polygon points="660,1710 880,1760 660,1810 440,1760" fill="#1a1730" stroke="#f59e0b" stroke-width="1.6"/>
+<text x="660" y="1756" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">11 · Terminated?</text>
+<text x="660" y="1774" fill="#f5d08a" font-size="11" text-anchor="middle">proctor failed?</text>
+
+<!-- terminated -> failed (from gaze terminate box across to failed stage) -->
+<path d="M250 1978 L250 2024 L460 2024" stroke="#e53e3e" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+<rect x="460" y="1994" width="400" height="92" rx="12" fill="#13131f" stroke="#e53e3e" stroke-width="1.6"/>
+<text x="478" y="2020" fill="#fff" font-size="14" font-weight="700">11a · FAILED stage (terminated)</text>
+<text x="478" y="2040" fill="#ff9b9b" font-size="11">No score. Saves a failed session for recruiters.</text>
+<text x="478" y="2056" fill="#ff9b9b" font-size="11">Downloads: DETAILED PDF report + FAILED PDF certificate</text>
+<text x="478" y="2072" fill="#ff9b9b" font-size="11">(session detail + per-question + reason). Retake option.</text>
+<path d="M555 1792 L555 1994" stroke="#e53e3e" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<text x="500" y="1900" fill="#ff9b9b" font-size="11" text-anchor="middle">YES</text>
+
+<!-- not terminated -> results -->
+<path d="M660 1810 L660 2128" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+<text x="690" y="1910" fill="#c4b5fd" font-size="11">NO → normal results</text>
+
+<!-- STEP 12 results -->
+<rect x="430" y="2128" width="460" height="120" rx="12" fill="#13131f" stroke="#7c5cff" stroke-width="1.6"/>
+<text x="450" y="2154" fill="#fff" font-size="15" font-weight="700">12 · Results</text>
+<text x="450" y="2176" fill="#a9a9bd" font-size="11.5">Compute overall + per-skill scores (coding/technical/behavioral).</text>
+<text x="450" y="2194" fill="#a9a9bd" font-size="11.5">Animated score ring · skill radar · PDF certificate · share links ·</text>
+<text x="450" y="2212" fill="#a9a9bd" font-size="11.5">question breakdown · AI (or offline) coaching summary · TXT report.</text>
+<text x="450" y="2232" fill="#7ee0a8" font-size="11.5">Saves session + updates leaderboard.</text>
+<path d="M660 2248 L660 2270" stroke="#7c5cff" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="560" y="2270" width="200" height="38" rx="9" fill="#1a1730" stroke="#2a7d52"/>
+<text x="660" y="2294" fill="#7ee0a8" font-size="12.5" font-weight="700" text-anchor="middle">END / Practice again</text>
+
+<!-- CROSS-CUTTING LAYERS at bottom -->
+<rect x="30" y="2350" width="1260" height="40" rx="10" fill="#1a1730" stroke="#7c5cff"/>
+<text x="660" y="2376" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">CROSS-CUTTING LAYERS (used by many steps)</text>
+
+<rect x="60" y="2410" width="380" height="124" rx="12" fill="#13131f" stroke="#2a7d52" stroke-width="1.3"/>
+<text x="78" y="2436" fill="#fff" font-size="13.5" font-weight="700">AI Dispatch — call_ai()</text>
+<text x="78" y="2458" fill="#a9a9bd" font-size="11">Router → Claude Opus 4.8 / GPT-5.5 / Gemini 3.5.</text>
+<text x="78" y="2476" fill="#a9a9bd" font-size="11">Model picker + Custom field. 3-stage: Gen→Eval→Coach.</text>
+<text x="78" y="2494" fill="#7ee0a8" font-size="11">Shared keys (secrets/env) → every user gets access.</text>
+<text x="78" y="2512" fill="#a9a9bd" font-size="11">Graceful errors. Offline → local scorers instead.</text>
+
+<rect x="470" y="2410" width="380" height="124" rx="12" fill="#13131f" stroke="#e53e3e" stroke-width="1.3"/>
+<text x="488" y="2436" fill="#fff" font-size="13.5" font-weight="700">Proctoring</text>
+<text x="488" y="2458" fill="#a9a9bd" font-size="11">Lockdown JS (shortcuts, tabs, DevTools).</text>
+<text x="488" y="2476" fill="#a9a9bd" font-size="11">Camera self-view + auto face snapshot (the real gate).</text>
+<text x="488" y="2494" fill="#a9a9bd" font-size="11">Human-voice meter (FFT 300-3400Hz + modulation).</text>
+<text x="488" y="2512" fill="#a9a9bd" font-size="11">Gaze (FaceMesh): 2 turns → 1 red warning → 4th fails.</text>
+
+<rect x="880" y="2410" width="380" height="124" rx="12" fill="#13131f" stroke="#7c5cff" stroke-width="1.3"/>
+<text x="898" y="2436" fill="#fff" font-size="13.5" font-weight="700">Storage (local JSON)</text>
+<text x="898" y="2458" fill="#a9a9bd" font-size="11">users.json — accounts + hashed passwords + role.</text>
+<text x="898" y="2476" fill="#a9a9bd" font-size="11">sessions.json — every interview result.</text>
+<text x="898" y="2494" fill="#a9a9bd" font-size="11">leaderboard.json · custom_interviews.json (codes).</text>
+<text x="898" y="2512" fill="#7ee0a8" font-size="11">Shared with the recruiter dashboard app.</text>
+
+<text x="660" y="2562" fill="#6f6f86" font-size="11.5" text-anchor="middle">Whole UI is a finite-state machine driven by st.session_state["stage"]: company_select → setup → syscheck → interviewing → (terminated | results).</text>
+<text x="660" y="2582" fill="#6f6f86" font-size="11.5" text-anchor="middle">Reliable: auth, scoring logic, dashboard, offline mode, PDF export. Best-effort: in-browser camera/gaze/voice (needs localhost or https; a deterrent, not tamper-proof).</text>
+</svg>

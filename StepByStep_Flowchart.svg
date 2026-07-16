@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="2080" viewBox="0 0 1000 2080" font-family="DejaVu Sans, Arial, sans-serif">
+  <defs>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4b2aad"/><stop offset="0.5" stop-color="#6d3bd1"/><stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="11" markerHeight="11" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L9,5 L0,10 z" fill="#7c5cff"/>
+    </marker>
+    <marker id="arrR" markerWidth="11" markerHeight="11" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L9,5 L0,10 z" fill="#e11d1d"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="2080" fill="#0b0b14"/>
+
+  <rect x="24" y="20" width="952" height="78" rx="16" fill="url(#hdr)"/>
+  <text x="48" y="56" fill="#ffffff" font-size="26" font-weight="800">AI Interview Coach — Step-by-Step Flow</text>
+  <text x="48" y="82" fill="#ECE7FF" font-size="14">Secure, AI-proctored mock interviews · how a candidate moves through the app from launch to certificate</text>
+
+  <g font-size="12.5">
+    <rect x="640" y="30" width="14" height="14" rx="3" fill="#7c5cff"/><text x="660" y="42" fill="#fff">Process step</text>
+    <rect x="760" y="30" width="14" height="14" rx="3" fill="#1d6f47"/><text x="780" y="42" fill="#fff">AI agent</text>
+    <rect x="640" y="52" width="14" height="14" rx="3" fill="#8a6d1f"/><text x="660" y="64" fill="#fff">Decision</text>
+    <rect x="760" y="52" width="14" height="14" rx="3" fill="#7a1f1f"/><text x="780" y="64" fill="#fff">Fail / terminate</text>
+  </g>
+
+  <text x="48" y="132" fill="#c4b5fd" font-size="15" font-weight="700">PHASE 1 · ACCESS &amp; SETUP</text>
+
+  <rect x="120" y="146" width="760" height="70" rx="12" fill="#15131f" stroke="#7c5cff" stroke-width="1.5"/>
+  <circle cx="150" cy="181" r="15" fill="#7c5cff"/><text x="150" y="186" fill="#fff" font-size="15" font-weight="800" text-anchor="middle">1</text>
+  <text x="178" y="174" fill="#fff" font-size="15" font-weight="700">Launch the app</text>
+  <text x="178" y="195" fill="#c7c7d6" font-size="12.5">Loads the dark theme, animations and session state. The candidate app runs with: streamlit run coach.py</text>
+  <line x1="500" y1="216" x2="500" y2="238" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="120" y="240" width="760" height="70" rx="12" fill="#15131f" stroke="#7c5cff" stroke-width="1.5"/>
+  <circle cx="150" cy="275" r="15" fill="#7c5cff"/><text x="150" y="280" fill="#fff" font-size="15" font-weight="800" text-anchor="middle">2</text>
+  <text x="178" y="268" fill="#fff" font-size="15" font-weight="700">Log in or create an account</text>
+  <text x="178" y="289" fill="#c7c7d6" font-size="12.5">Salted SHA-256 passwords. Candidates continue here; recruiters use the separate recruiter_dashboard.py app.</text>
+  <line x1="500" y1="310" x2="500" y2="332" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="120" y="334" width="760" height="74" rx="12" fill="#15131f" stroke="#7c5cff" stroke-width="1.5"/>
+  <circle cx="150" cy="371" r="15" fill="#7c5cff"/><text x="150" y="376" fill="#fff" font-size="15" font-weight="800" text-anchor="middle">3</text>
+  <text x="178" y="362" fill="#fff" font-size="15" font-weight="700">Auto connectivity check + AI setup</text>
+  <text x="178" y="383" fill="#c7c7d6" font-size="12.5">Online -&gt; pick provider/model (Claude · GPT · Gemini) or use a shared key.</text>
+  <text x="178" y="400" fill="#c7c7d6" font-size="12.5">Offline -&gt; automatic Demo Mode (built-in questions + instant scoring, no key needed).</text>
+  <line x1="500" y1="408" x2="500" y2="432" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <text x="48" y="430" fill="#c4b5fd" font-size="15" font-weight="700">PHASE 2 · CHOOSE THE INTERVIEW</text>
+
+  <rect x="120" y="438" width="760" height="92" rx="12" fill="#15131f" stroke="#7c5cff" stroke-width="1.5"/>
+  <circle cx="150" cy="484" r="15" fill="#7c5cff"/><text x="150" y="489" fill="#fff" font-size="15" font-weight="800" text-anchor="middle">4</text>
+  <text x="178" y="466" fill="#fff" font-size="15" font-weight="700">Company / role selection dashboard</text>
+  <text x="178" y="487" fill="#c7c7d6" font-size="12.5">• A "Hiring today" board that refreshes daily   • Target a specific company (80+ / 15 sectors) or a general role</text>
+  <text x="178" y="505" fill="#c7c7d6" font-size="12.5">• OR paste a recruiter's interview code   • Optional resume upload -&gt; AI match score &amp; gaps</text>
+  <text x="178" y="523" fill="#9a9ab0" font-size="11.5">A recruiter code skips ahead and applies that company's exact questions + lockdown rules.</text>
+  <line x1="500" y1="530" x2="500" y2="552" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <text x="48" y="550" fill="#c4b5fd" font-size="15" font-weight="700">PHASE 3 · CONFIGURE &amp; GENERATE</text>
+
+  <rect x="120" y="558" width="760" height="74" rx="12" fill="#15131f" stroke="#7c5cff" stroke-width="1.5"/>
+  <circle cx="150" cy="595" r="15" fill="#7c5cff"/><text x="150" y="600" fill="#fff" font-size="15" font-weight="800" text-anchor="middle">5</text>
+  <text x="178" y="586" fill="#fff" font-size="15" font-weight="700">Interview configuration</text>
+  <text x="178" y="607" fill="#c7c7d6" font-size="12.5">Choose experience level, language (8), focus (coding / behavioural / mix),</text>
+  <text x="178" y="624" fill="#c7c7d6" font-size="12.5">number of questions (5-50) and minutes per question.</text>
+  <line x1="500" y1="632" x2="500" y2="654" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="120" y="656" width="760" height="70" rx="12" fill="#0f1c15" stroke="#1d6f47" stroke-width="1.6"/>
+  <circle cx="150" cy="691" r="15" fill="#1d6f47"/><text x="150" y="696" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">AI</text>
+  <text x="178" y="684" fill="#7ee0a8" font-size="15" font-weight="700">Agent 1 — Question Generator</text>
+  <text x="178" y="705" fill="#c7c7d6" font-size="12.5">The AI writes tagged questions [CODING]/[DESIGN]/[CONCEPT]/[BEHAVIORAL], tailored to the company &amp; resume.</text>
+  <line x1="500" y1="726" x2="500" y2="748" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <text x="48" y="746" fill="#c4b5fd" font-size="15" font-weight="700">PHASE 4 · PROCTORING PRE-FLIGHT</text>
+
+  <rect x="120" y="754" width="760" height="92" rx="12" fill="#15131f" stroke="#7c5cff" stroke-width="1.5"/>
+  <circle cx="150" cy="800" r="15" fill="#7c5cff"/><text x="150" y="805" fill="#fff" font-size="15" font-weight="800" text-anchor="middle">7</text>
+  <text x="178" y="782" fill="#fff" font-size="15" font-weight="700">System check (automatic)</text>
+  <text x="178" y="803" fill="#c7c7d6" font-size="12.5">Camera turns on, the face is detected and a photo is captured automatically.</text>
+  <text x="178" y="821" fill="#c7c7d6" font-size="12.5">The lockdown options the recruiter selected are activated and listed.</text>
+  <text x="178" y="839" fill="#9a9ab0" font-size="11.5">The green START button appears only after the camera + face are confirmed.</text>
+  <line x1="500" y1="846" x2="500" y2="868" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <text x="48" y="866" fill="#c4b5fd" font-size="15" font-weight="700">PHASE 5 · THE LIVE PROCTORED INTERVIEW (loops per question)</text>
+
+  <rect x="120" y="874" width="760" height="96" rx="12" fill="#15131f" stroke="#7c5cff" stroke-width="1.5"/>
+  <circle cx="150" cy="922" r="15" fill="#7c5cff"/><text x="150" y="927" fill="#fff" font-size="15" font-weight="800" text-anchor="middle">8</text>
+  <text x="178" y="902" fill="#fff" font-size="15" font-weight="700">Answer each question under live proctoring</text>
+  <text x="178" y="923" fill="#c7c7d6" font-size="12.5">A countdown timer ticks and auto-submits at zero. Coding questions get a 38-language editor;</text>
+  <text x="178" y="941" fill="#c7c7d6" font-size="12.5">other questions accept typing or voice (Whisper). Camera records; copy/paste &amp; DevTools blocked.</text>
+  <text x="178" y="959" fill="#9a9ab0" font-size="11.5">Proctoring runs continuously: head-pose/gaze, human-voice detection, tab-switch logging.</text>
+
+  <line x1="380" y1="970" x2="380" y2="992" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="760" y1="922" x2="906" y2="922" stroke="#e11d1d" stroke-width="2" marker-end="url(#arrR)"/>
+
+  <rect x="700" y="998" width="276" height="150" rx="12" fill="#1c1117" stroke="#e11d1d" stroke-width="1.5"/>
+  <circle cx="724" cy="1018" r="8" fill="none" stroke="#ff9b9b" stroke-width="1.6"/><circle cx="724" cy="1018" r="2.6" fill="#ff9b9b"/>
+  <text x="742" y="1023" fill="#ff9b9b" font-size="14" font-weight="800">Proctor watch</text>
+  <text x="716" y="1046" fill="#ffd2d2" font-size="12">Head turn #2  -&gt;  one RED warning</text>
+  <text x="716" y="1066" fill="#ffd2d2" font-size="12">Head turn #4  -&gt;  TERMINATE</text>
+  <text x="716" y="1088" fill="#ffd2d2" font-size="12">Talking  -&gt;  silent warning</text>
+  <text x="716" y="1108" fill="#ffd2d2" font-size="12">Tab switch / DevTools  -&gt;  logged</text>
+  <text x="716" y="1132" fill="#c89b9b" font-size="11">If terminated -&gt; Phase 6 (FAILED)</text>
+  <path d="M838 1148 L838 1300 L726 1300" fill="none" stroke="#e11d1d" stroke-width="2" marker-end="url(#arrR)"/>
+
+  <rect x="120" y="994" width="520" height="74" rx="12" fill="#0f1c15" stroke="#1d6f47" stroke-width="1.6"/>
+  <circle cx="150" cy="1031" r="15" fill="#1d6f47"/><text x="150" y="1036" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">AI</text>
+  <text x="178" y="1024" fill="#7ee0a8" font-size="15" font-weight="700">Agent 2 — Answer Evaluator</text>
+  <text x="178" y="1045" fill="#c7c7d6" font-size="12.5">Scores 1-10 with strength, fix, model answer, complexity &amp; tip.</text>
+  <text x="178" y="1062" fill="#c7c7d6" font-size="12.5">Code is dry-run and only scored if correct.</text>
+  <line x1="380" y1="1068" x2="380" y2="1090" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <polygon points="380,1092 470,1132 380,1172 290,1132" fill="#1f1a10" stroke="#8a6d1f" stroke-width="1.6"/>
+  <text x="380" y="1128" fill="#f0d48a" font-size="13" font-weight="700" text-anchor="middle">More</text>
+  <text x="380" y="1145" fill="#f0d48a" font-size="13" font-weight="700" text-anchor="middle">questions?</text>
+  <path d="M290 1132 L80 1132 L80 922 L120 922" fill="none" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="92" y="1030" fill="#c4b5fd" font-size="12" font-weight="700">YES — next question</text>
+  <line x1="380" y1="1172" x2="380" y2="1300" stroke="#7c5cff" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="392" y="1210" fill="#c4b5fd" font-size="12" font-weight="700">NO — finished</text>
+
+  <text x="48" y="1300" fill="#c4b5fd" font-size="15" font-weight="700">PHASE 6 · OUTCOME</text>
+
+  <rect x="120" y="1310" width="500" height="150" rx="12" fill="#101826" stroke="#2a7d52" stroke-width="1.6"/>
+  <path d="M138 1330 l6 6 l12 -13" fill="none" stroke="#7ee0a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="166" y="1336" fill="#7ee0a8" font-size="16" font-weight="800">RESULTS (completed)</text>
+  <text x="142" y="1360" fill="#c7c7d6" font-size="12.5">• Overall score, animated gauge &amp; skill radar</text>
+  <text x="142" y="1380" fill="#c7c7d6" font-size="12.5">• Coding / Technical / Behavioural / Integrity cards</text>
+  <text x="142" y="1400" fill="#c7c7d6" font-size="12.5">• Professional PDF certificate + share links</text>
+  <text x="142" y="1420" fill="#c7c7d6" font-size="12.5">• Per-question breakdown + AI coaching summary</text>
+  <text x="142" y="1444" fill="#9a9ab0" font-size="11.5">Saved to history &amp; the recruiter leaderboard.</text>
+
+  <rect x="640" y="1310" width="336" height="150" rx="12" fill="#1c1117" stroke="#7a1f1f" stroke-width="1.6"/>
+  <circle cx="670" cy="1331" r="9" fill="none" stroke="#ff9b9b" stroke-width="2"/><line x1="664" y1="1325" x2="676" y2="1337" stroke="#ff9b9b" stroke-width="2"/>
+  <text x="686" y="1336" fill="#ff9b9b" font-size="16" font-weight="800">TERMINATED (FAILED)</text>
+  <text x="662" y="1360" fill="#ffd2d2" font-size="12.5">• Reached when the proctor rule is broken</text>
+  <text x="662" y="1380" fill="#ffd2d2" font-size="12.5">• No score is awarded</text>
+  <text x="662" y="1400" fill="#ffd2d2" font-size="12.5">• FAILED PDF certificate + detailed PDF report</text>
+  <text x="662" y="1420" fill="#ffd2d2" font-size="12.5">• Failed attempt saved for the recruiter</text>
+  <text x="662" y="1444" fill="#c89b9b" font-size="11.5">Candidate may retake in a quiet, lit room.</text>
+
+  <rect x="120" y="1500" width="856" height="120" rx="12" fill="#13131f" stroke="#23233a" stroke-width="1.4"/>
+  <text x="142" y="1526" fill="#c4b5fd" font-size="15" font-weight="800">Companion app — Recruiter Dashboard (recruiter_dashboard.py)</text>
+  <text x="142" y="1550" fill="#c7c7d6" font-size="12.5">Runs separately but shares the same data folder, so the two apps stay in sync:</text>
+  <text x="142" y="1572" fill="#c7c7d6" font-size="12.5">• Analytics — every candidate result, filters, CSV export, leaderboards</text>
+  <text x="142" y="1592" fill="#c7c7d6" font-size="12.5">• Create Interview — design a custom interview, choose 13 lockdown options, get a shareable code (used in Phase 2)</text>
+  <text x="142" y="1610" fill="#9a9ab0" font-size="11.5">The certificate then carries the company's name as the issuer.</text>
+
+  <rect x="120" y="1648" width="856" height="150" rx="12" fill="#0f0f18" stroke="#23233a" stroke-width="1.4"/>
+  <text x="142" y="1674" fill="#fff" font-size="15" font-weight="800">Cross-cutting technology (active throughout)</text>
+  <text x="142" y="1700" fill="#c7c7d6" font-size="12.5">AI:  Claude · GPT · Gemini (auto-fallback) with an offline demo bank for no-internet days</text>
+  <text x="142" y="1722" fill="#c7c7d6" font-size="12.5">Lockdown:  configurable copy/paste, right-click, DevTools, shortcuts, tab-switch, screenshot, selection blocks</text>
+  <text x="142" y="1744" fill="#c7c7d6" font-size="12.5">Proctoring:  MediaPipe FaceMesh head/eye tracking · Web-Audio human-voice detection · auto full-screen</text>
+  <text x="142" y="1766" fill="#c7c7d6" font-size="12.5">Storage:  local JSON (accounts, sessions, leaderboard, custom interviews) · PDF export via reportlab</text>
+  <text x="142" y="1788" fill="#9a9ab0" font-size="11.5">Frontend: Streamlit + custom HTML/CSS/JS components. Honest note: lockdown is a strong deterrent, not tamper-proof.</text>
+
+  <text x="500" y="1850" fill="#6f6f86" font-size="12" text-anchor="middle">AI Interview Coach · candidate flow (coach.py) with the recruiter companion app · diagram for project submission</text>
+
+  <g font-size="12" font-weight="700">
+    <rect x="120" y="1880" width="856" height="40" rx="10" fill="#15131f" stroke="#2a2440"/>
+    <text x="140" y="1905" fill="#c4b5fd">1 Access</text>
+    <text x="245" y="1905" fill="#9a9ab0">-&gt;</text>
+    <text x="270" y="1905" fill="#c4b5fd">2 Choose interview</text>
+    <text x="430" y="1905" fill="#9a9ab0">-&gt;</text>
+    <text x="455" y="1905" fill="#c4b5fd">3 Configure &amp; generate</text>
+    <text x="660" y="1905" fill="#9a9ab0">-&gt;</text>
+    <text x="685" y="1905" fill="#c4b5fd">4 Pre-flight</text>
+    <text x="780" y="1905" fill="#9a9ab0">-&gt;</text>
+    <text x="805" y="1905" fill="#c4b5fd">5 Interview</text>
+    <text x="905" y="1905" fill="#9a9ab0">-&gt;</text>
+    <text x="924" y="1905" fill="#c4b5fd">6 Result</text>
+  </g>
+</svg>

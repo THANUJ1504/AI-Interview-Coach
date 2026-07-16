@@ -1,0 +1,12 @@
+=== SUGGESTED REPO NAME ===
+AI-Interview-Coach
+
+=== ABOUT / DESCRIPTION (paste into GitHub's "About" box, max ~350 chars) ===
+AI-proctored mock interview platform: generates company-specific questions with Claude/GPT/Gemini, grades your code and answers, tracks gaze + voice for cheating, and issues a PDF certificate — plus a recruiter dashboard to build, share and analyse real interviews. Built with Python + Streamlit.
+
+=== SHORTER ONE-LINER (if you want it tighter) ===
+AI-proctored mock interviews with company-specific questions, live gaze/voice proctoring, PDF certificates, and a recruiter analytics dashboard.
+
+=== SUGGESTED TOPICS / TAGS (add these in the About box) ===
+python, streamlit, artificial-intelligence, llm, claude, openai, gemini, interview-preparation,
+proctoring, mediapipe, computer-vision, edtech, mock-interview, ai-agents, reportlab
